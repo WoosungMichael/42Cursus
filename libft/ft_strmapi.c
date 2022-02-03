@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 11:49:28 by wookim            #+#    #+#             */
-/*   Updated: 2022/02/03 18:57:41 by wookim           ###   ########.fr       */
+/*   Created: 2022/02/03 15:22:12 by wookim            #+#    #+#             */
+/*   Updated: 2022/02/03 15:31:27 by wookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned char	*new_dst;
-	unsigned char	*new_src;
+	char			*ret;
+	unsigned int	i;
 
-	if (!dst && !src)
-		return (NULL);
-	new_dst = dst;
-	new_src = (unsigned char *)src;
-	while (n--)
-		*new_dst++ = *new_src++;
-	return (dst);
+	if (!s || !f)
+		return (0);
+	ret = (char *)malloc(ft_strlen((char *)s) + 1);
+	if (!ret)
+		return (0);
+	i = 0;
+	while (s[i])
+	{
+		ret[i] = f(i, s[i]);
+		i++;
+	}
+	ret[i] = 0;
+	return (ret);
 }

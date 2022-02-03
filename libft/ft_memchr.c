@@ -6,7 +6,7 @@
 /*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 14:46:03 by wookim            #+#    #+#             */
-/*   Updated: 2022/02/02 16:56:05 by wookim           ###   ########.fr       */
+/*   Updated: 2022/02/03 14:34:21 by wookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (n--)
 	{
 		if (*str == (unsigned char)c)
-			return ((void *)s);
+			return ((void *)str);
 		str++;
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:25:09 by wookim            #+#    #+#             */
-/*   Updated: 2022/02/02 17:58:51 by wookim           ###   ########.fr       */
+/*   Updated: 2022/02/03 14:49:39 by wookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,23 @@ int	check(char c)
 
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		flag;
-	long	answer;
+	int			i;
+	int			flag;
+	long long	answer;
 
 	i = 0;
 	flag = 1;
 	answer = 0;
 	while (check(str[i]))
 		i++;
-	while (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i++] == '-')
-			flag *= -1;
-	}
+	if (str[i] == '-')
+		flag *= -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		answer *= 10;
 		answer += str[i++] - '0';
-		if (answer > 2147483647 && flag == 1)
-			return (-1);
-		if (answer > 2147483648 && flag == -1)
-			return (0);
 	}
 	return (answer * flag);
 }

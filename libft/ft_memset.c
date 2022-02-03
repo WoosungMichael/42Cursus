@@ -6,7 +6,7 @@
 /*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:31:28 by wookim            #+#    #+#             */
-/*   Updated: 2022/02/02 17:54:43 by wookim           ###   ########.fr       */
+/*   Updated: 2022/02/03 18:42:29 by wookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t	index;
+	unsigned char	*new_ptr;
+	unsigned char	new_value;
 
-	index = 0;
-	while (index < len)
-	{
-		*((unsigned char *)b + index) = c;
-		index++;
-	}
+	new_ptr = b;
+	new_value = c;
+	while (len--)
+		*new_ptr++ = new_value;
 	return (b);
 }
