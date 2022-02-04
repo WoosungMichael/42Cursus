@@ -6,7 +6,7 @@
 /*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:22:12 by wookim            #+#    #+#             */
-/*   Updated: 2022/02/03 15:31:27 by wookim           ###   ########.fr       */
+/*   Updated: 2022/02/04 17:09:11 by wookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (0);
-	ret = (char *)malloc(ft_strlen((char *)s) + 1);
+	ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!ret)
 		return (0);
 	i = 0;

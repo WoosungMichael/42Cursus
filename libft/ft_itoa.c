@@ -6,55 +6,51 @@
 /*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:21:29 by wookim            #+#    #+#             */
-/*   Updated: 2022/02/03 15:33:29 by wookim           ###   ########.fr       */
+/*   Updated: 2022/02/04 16:45:09 by wookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long int	ft_abs(long int num)
-{
-	if (num < 0)
-		return (-num);
-	else
-		return (num);
-}
-
-static int	count_digit(int num)
+int	get_int_len(long long n)
 {
 	int	len;
 
-	if (num <= 0)
+	if (n < 0)
 		len = 1;
 	else
 		len = 0;
-	while (num != 0)
+	if (n == 0 || n == -0)
+		return (1);
+	while (n)
 	{
+		n /= 10;
 		len++;
-		num /= 10;
 	}
 	return (len);
 }
 
-char	*ft_itoa(int num)
+char	*ft_itoa(int n)
 {
-	char	*ret;
-	int		num_len;
-	int		min_flag;
+	int				len;
+	long long		nbr;
+	char			*res;
 
-	min_flag = num < 0;
-	num_len = count_digit(num);
-	ret = (char *)malloc(num_len + 1);
-	if (!ret)
-		return (0);
-	ret[num_len--] = 0;
-	while (num_len >= 0)
+	len = get_int_len(n);
+	nbr = (long long)n;
+	if (n < 0)
+		nbr *= -1;
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!res)
+		return (NULL);
+	res[len--] = '\0';
+	while (len >= 0)
 	{
-		ret[num_len] = ft_abs(num % 10) + '0';
-		num_len--;
-		num = ft_abs(num / 10);
+		res[len] = nbr % 10 + '0';
+		nbr /= 10;
+		len--;
 	}
-	if (min_flag)
-		ret[0] = '-';
-	return (ret);
+	if (n < 0)
+		res[0] = '-';
+	return (res);
 }

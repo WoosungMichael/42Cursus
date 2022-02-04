@@ -6,7 +6,7 @@
 /*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:01:11 by wookim            #+#    #+#             */
-/*   Updated: 2022/02/03 15:30:36 by wookim           ###   ########.fr       */
+/*   Updated: 2022/02/04 15:58:25 by wookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (0);
-	len_s1 = ft_strlen((char *)s1);
-	len_s2 = ft_strlen((char *)s2);
-	r_str = (char *)malloc(len_s1 + len_s2 + 1);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	r_str = (char *)malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (!r_str)
 		return (0);
 	ft_memcpy(r_str, s1, len_s1);
