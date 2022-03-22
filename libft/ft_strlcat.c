@@ -1,6 +1,20 @@
-unsigned int	str_len(char *str)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/02 12:06:55 by wookim            #+#    #+#             */
+/*   Updated: 2022/02/02 17:49:40 by wookim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+size_t	str_len(const char *str)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
@@ -8,28 +22,28 @@ unsigned int	str_len(char *str)
 	return (i);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	d_len;
-	unsigned int	s_len;
+	size_t	i;
+	size_t	d_len;
+	size_t	s_len;
 
-	d_len = str_len(dest);
+	d_len = str_len(dst);
 	s_len = str_len(src);
 	i = 0;
-	while (*dest)
+	while (*dst)
 	{
-		dest++;
+		dst++;
 		i++;
 	}
 	while (*src && i + 1 < size)
 	{
-		*dest = *src;
-		dest++;
+		*dst = *src;
+		dst++;
 		src++;
 		i++;
 	}
-	*dest = 0;
+	*dst = 0;
 	if (d_len > size)
 		return (s_len + size);
 	else

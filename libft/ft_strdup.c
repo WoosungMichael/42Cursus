@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/02 15:27:01 by wookim            #+#    #+#             */
+/*   Updated: 2022/02/03 14:42:46 by wookim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 int	ft_strlen(char *str)
@@ -18,7 +30,7 @@ char	*ft_strdup(char *src)
 
 	i = 0;
 	len = ft_strlen(src);
-	str1 = (char *)malloc(sizeof(char) * len + 1);
+	str1 = (char *)malloc(sizeof(char) * (len + 1));
 	if (str1 == NULL)
 		return (NULL);
 	while (src[i] != '\0')

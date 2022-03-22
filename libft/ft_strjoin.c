@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 11:16:34 by wookim            #+#    #+#             */
-/*   Updated: 2022/02/02 16:30:33 by wookim           ###   ########.fr       */
+/*   Created: 2022/02/03 15:01:11 by wookim            #+#    #+#             */
+/*   Updated: 2022/02/04 15:58:25 by wookim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	size_t	len_s1;
+	size_t	len_s2;
+	char	*r_str;
+
+	if (!s1 || !s2)
+		return (0);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	r_str = (char *)malloc(sizeof(char) * (len_s1 + len_s2 + 1));
+	if (!r_str)
+		return (0);
+	ft_memcpy(r_str, s1, len_s1);
+	ft_memcpy(r_str + len_s1, s2, len_s2);
+	r_str[len_s1 + len_s2] = 0;
+	return (r_str);
 }
