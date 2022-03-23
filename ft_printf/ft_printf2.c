@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf2.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/23 11:23:57 by wookim            #+#    #+#             */
+/*   Updated: 2022/03/23 11:24:00 by wookim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	ft_putnbr(long long n)
+int	ft_putnbr(int n)
 {
 	int	len;
 
@@ -26,7 +38,7 @@ int	ft_putnbr(long long n)
 	return (len);
 }
 
-int	ft_unsigned(long long nbr)
+int	ft_unsigned(int nbr)
 {
 	int				len;
 	unsigned int	n;

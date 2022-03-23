@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-CM = cc
+CC = gcc
 
 FLAG = -Wall -Wextra -Werror
 
@@ -16,7 +16,7 @@ $(NAME) : $(CNVRT) $(INCLUDE)
 	@ar rcs $(NAME) $(CNVRT) $(INCLUDE)
 
 %.o : %.c $(INCLUDE)
-	@$(CM) $(FLAG) -o $@ -c $<
+	@$(CC) $(FLAG) -o $@ -c $<
 
 clean:
 	@rm -rf $(CNVRT)

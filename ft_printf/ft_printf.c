@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/23 11:23:38 by wookim            #+#    #+#             */
+/*   Updated: 2022/03/23 12:54:25 by wookim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_check(char format)
 {
 	char	*types;
-	int		i;
+	int		index;
 
 	types = "cspdiuxX%";
 	index = 0;
@@ -28,9 +40,9 @@ int	ft_check_type(char format, va_list *args)
 	if (format == 'p')
 		len += ft_pointer(va_arg(*args, void *));
 	if (format == 'd' || format == 'i')
-		len += ft_putnbr(va_arg(*args, long long));
+		len += ft_putnbr(va_arg(*args, int));
 	if (format == 'u')
-		len += ft_unsigned(va_arg(*args, long long));
+		len += ft_unsigned(va_arg(*args, int));
 	if (format == 'x')
 		len += ft_hexadecimal(va_arg(*args, int));
 	if (format == 'X')
