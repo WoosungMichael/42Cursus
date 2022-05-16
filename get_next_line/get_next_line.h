@@ -1,8 +1,18 @@
-# ifndef GET_NEXT_LINE_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wookim <wookim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/16 14:30:16 by wookim            #+#    #+#             */
+/*   Updated: 2022/05/16 16:45:06 by wookim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # include <stdlib.h>
-# include <sys/types.h>
-# include <sys/uio.h>
 # include <unistd.h>
 
 char	*get_next_line(int fd);
